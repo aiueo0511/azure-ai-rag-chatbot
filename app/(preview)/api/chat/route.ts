@@ -14,20 +14,13 @@ export async function POST(req: Request) {
       model: azure(process.env.AZURE_DEPLOYMENT_NAME!),
       messages: convertToCoreMessages(messages),
       system: `You are a helpful assistant acting as the users' second brain.
-Use tools on every request.
-Be sure to getInformation from your knowledge base before answering any questions.
-If a response requires multiple tools, call one tool after another without responding to the user.
-If a response requires information from an additional tool to generate a response, call the appropriate tools in order before responding to the user.
-ONLY respond to questions using information from tool calls.
-If no relevant information is found in the tool calls and information fetched from the knowledge base, respond, "Sorry, I don't know."
-Be sure to adhere to any instructions in tool calls ie. if they say to respond like "...", do exactly that.
+Use the getInformation tool to search for relevant knowledge.
+If no relevant information is found, answer based on your general knowledge and reasoning.
+Only respond "Sorry, I don't know." if you truly cannot answer using any available information.
+Be sure to adhere to any instructions in tool calls if they specify response style.
 Keep responses short and concise. Answer in a single sentence where possible.
-If you are unsure, use the getInformation tool and you can use common sense to reason based on the information you do have.
-Use your abilities as a reasoning machine to answer questions based on the information you do have.
+Cite sources using source ids like 【234d987】 if available. Otherwise, omit citations.`
 
-Cite the sources using source ids at the end of the answer text, like 【234d987】, using the id of the source.
-
-Respond "Sorry, I don't know." if you are unable to answer the question using the information provided by the tools.
 `,
       tools: {
         getInformation: tool({
