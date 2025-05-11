@@ -5,9 +5,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-rag.vercel.app"),
-  title: "Retrieval-Augmented Generation Preview - Azure AI Search, Azure OpenAI, and Vercel AI SDK",
-  description:
-    "Augment language model generations with vector based retrieval using Azure AI Search, text generation from Azure OpenAI, and orchestration with Vercel AI SDK",
+  title: "AI チャットボット - Azure AI Search と OpenAI を使用:
+    "Azure AI Search と Azure OpenAI を使用して、ベクトルベースの情報検索とテキスト生成を強化した AI チャットボット",
 };
 
 export default function RootLayout({
@@ -16,12 +15,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ja" suppressHydrationWarning>
       <body>
         <ThemeProvider>
+          {/* 日本語の注意書きを追加 */}
+          <div style={{ padding: '10px', backgroundColor: '#f8d7da', color: '#721c24', border: '1px solid #f5c6cb' }}>
+            <h2>注意事項</h2>
+            <p>個人情報や機密情報を入力しないでください。</p>
+          </div>
           {children}
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
