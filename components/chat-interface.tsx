@@ -134,13 +134,23 @@ export default function ChatInterface() {
                 Source Code
               </a>
             </div>
-            <div className="text-center mb-4 md:mb-8">
-              <h1 className="text-2xl font-bold mb-2">AI Chat</h1>
-              <p className="text-sm text-muted-foreground">
-                A minimal RAG chat application built with Azure AI Search, Azure
-                OpenAI, and the Vercel AI SDK
-              </p>
-            </div>
+<div className="text-center mb-4 md:mb-8">
+  <h1 className="text-2xl font-bold mb-2">Kaiyo-town AI ChatAPP</h1>
+  <p className="text-sm text-muted-foreground mb-4">
+    質問に答えたり、わからないことを聞き返したりしてくれる、学びのパートナーです。
+  </p>
+  
+  <div className="text-left inline-block text-sm text-muted-foreground max-w-md mx-auto">
+    <p className="font-semibold mb-1">【使う前に読んでね】</p>
+    <ol className="list-decimal list-inside space-y-1">
+      <li>AIの回答はいつも正確なものとは限りません。最終的な判断をするのは私たちです。</li>
+      <li>自分の名前、住所、電話番号などの個人情報や、ほかの人に知られたくないことは送らないでください。</li>
+      <li>このチャットに何を入力したかは、先生や管理者が確認することができます。</li>
+      <li>チャットの履歴や活動に関するデータは、利用者を特定しない形式でサービス改善や研究に使われることがあります。</li>
+    </ol>
+  </div>
+</div>
+
 
             <MessageContainer
               messages={messages}
@@ -151,12 +161,19 @@ export default function ChatInterface() {
               messagesEndRef={messagesEndRef}
             />
 
-            <ChatInput 
-              input={input} 
-              onInputChange={handleInputChange} 
-              onSubmit={handleSubmitWithErrorReset}
-              isLoading={isLoading}
-            />
+<ChatInput 
+  input={input} 
+  onInputChange={handleInputChange} 
+  onSubmit={handleSubmitWithErrorReset}
+  isLoading={isLoading}
+/>
+
+<footer className="text-center text-xs text-muted-foreground py-4">
+  © con-. このチャットは学習目的で運用されています。
+</footer>
+
+
+            
           </div>
         </ResizablePanel>
         {isLargeScreen && isCitationShown && <ResizableHandle withHandle />}
