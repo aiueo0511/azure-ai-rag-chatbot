@@ -44,11 +44,20 @@ export async function POST(req: Request) {
             const uniqueResults = Array.from(
               new Map(results.flat().map((item) => [item?.text, item])).values(),
             );
-            return uniqueResults;
-          },
-        }),
-      },
-    });
+       return {
+      result: uniqueResults.filter(Boolean).map((item, index) => ({
+        id: item.id ?? `doc-${index}`,
+        text: item.text ?? "（内容なし）",
+      })),
+    };
+    } catch (err) {
+        console.error("getInformation error:", err);
+  return { result: [] };
+      }
+    },
+  }),
+}, // ✅ tools 終了
+}); // ✅ ✅ ✅ streamText 全体を閉じる
 
     return result.toDataStreamResponse();
   } catch (error: unknown) {
