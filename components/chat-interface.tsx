@@ -125,19 +125,20 @@ export default function ChatInterface() {
           <div className="flex flex-col min-w-0 h-screen bg-background">
             <div className="flex flex-row justify-between items-center p-4">
               <ThemeChanger />
-              <a
-                href="https://github.com/Azure-Samples/azure-ai-vercel-rag-starter"
-                className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Source Code
-              </a>
+           {/* <a
+  href="https://github.com/Azure-Samples/azure-ai-vercel-rag-starter"
+  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Source Code
+</a> */}
+
             </div>
 <div className="text-center mb-4 md:mb-8">
   <h1 className="text-2xl font-bold mb-2">Kaiyo-town AI ChatAPP</h1>
   <p className="text-sm text-muted-foreground mb-4">
-    質問に答えたり、わからないことを聞き返したりしてくれる、学びのパートナーです。
+    質問に答えたり、聞き返したりしてくれる、学びのパートナーです。
   </p>
   
   <div className="text-left inline-block text-sm text-muted-foreground max-w-md mx-auto">
