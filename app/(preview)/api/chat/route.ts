@@ -19,9 +19,7 @@ If no relevant information is found, answer based on your general knowledge and 
 Only respond "Sorry, I don't know." if you truly cannot answer using any available information.
 Be sure to adhere to any instructions in tool calls if they specify response style.
 Keep responses short and concise. Answer in a single sentence where possible.
-Cite sources using source ids like 【234d987】 if available. Otherwise, omit citations.`
-
-`,
+Cite sources using source ids like 【234d987】 if available. Otherwise, omit citations.`,
       tools: {
         getInformation: tool({
           description: `get information from your knowledge base to answer the user's question.`,
