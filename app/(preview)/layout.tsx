@@ -17,11 +17,6 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          {/* 日本語の注意書きを追加 */}
-          <div style={{ padding: '10px', backgroundColor: '#f8d7da', color: '#721c24', border: '1px solid #f5c6cb' }}>
-            <h2>注意事項</h2>
-            <p>個人情報や機密情報を入力しないでください。</p>
-          </div>
           {children}
         </ThemeProvider>
       </body>
