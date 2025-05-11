@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { AzureIcon , VercelIcon} from "./icons";
+import { AzureIcon , VercelIcon } from "./icons";
 
 const ProjectOverview = () => {
   return (
@@ -11,12 +11,15 @@ const ProjectOverview = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 5 }}
     >
+      {/* 👇 テンプレート文・アイコン・リンクをまるごと非表示 */}
+      {/*
       <div className="border-2 rounded-lg p-6 flex flex-col gap-4 text-sm text-muted-foreground dark:border-neutral-700 dark:bg-neutral-900">
         <p className="flex flex-row justify-center gap-4 items-center text-foreground">
           <VercelIcon />
           +
           <AzureIcon />
         </p>
+
         <p>
           Use the Vercel AI SDK&apos;s{" "}
           <Link
@@ -36,6 +39,7 @@ const ProjectOverview = () => {
           generation (RAG) capabilities, utilizing Azure AI Search for search
           functionality and Azure OpenAI for text and embedding generation.
         </p>
+
         <p>
           Deploy your own version of this chatbot{" "}
           <Link
@@ -48,6 +52,7 @@ const ProjectOverview = () => {
           .
         </p>
       </div>
+      */}
     </motion.div>
   );
 };
