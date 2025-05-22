@@ -92,7 +92,7 @@ export async function POST(req: Request) {
     console.error(error);
     return new Response(
       JSON.stringify({
-        error: "An unexpected error occurred. Please try again later.",
+        error: "言葉をすこし変えて、もう一度入力してください。",
       }),
       { status: 500 }
     );
