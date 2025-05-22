@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-rag.vercel.app"),
-  title: "AI チャットボット - Azure AI Search と Azure OpenAI を使用して、ベクトルベースの情報検索とテキスト生成を強化した AI チャットボット",
+  title: "町の深ぼり",
 };
 
 export default function RootLayout({
