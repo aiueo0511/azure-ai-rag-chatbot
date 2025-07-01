@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-rag.vercel.app"),
-  title: "町の深ぼり",
+  title: "防災教育",
 };
 
 export default function RootLayout({
