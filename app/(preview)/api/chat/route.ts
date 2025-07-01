@@ -221,9 +221,9 @@ export async function POST(req: Request) {
  ナレッジ使用時の注意： 
 ・記事の文章をそのまま引用せず、やさしい日本語での要約・言い換えを行ってください。 
 ・被災者の声や事例は、自然な会話の流れの中で紹介してください。
-・紹介後は、共感・励まし → 質問の順でやりとりを進めてください。,
+・紹介後は、共感・励まし → 質問の順でやりとりを進めてください。
 
- /*
+/*
 tools: {
   getInformation: tool({
     description: `get information from your knowledge base to answer the user's question.`,
@@ -258,7 +258,6 @@ tools: {
   }),
 },
 */
-
 
   tools: {}, // ← 空定義にしておくと動作は維持される
 });
