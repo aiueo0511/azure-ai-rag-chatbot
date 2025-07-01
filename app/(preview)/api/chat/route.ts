@@ -223,40 +223,42 @@ export async function POST(req: Request) {
 ・被災者の声や事例は、自然な会話の流れの中で紹介してください。
 ・紹介後は、共感・励まし → 質問の順でやりとりを進めてください。,
 
-  // 🛑 一時的に getInformation tool を無効化（残す）
-  // tools: {
-  //   getInformation: tool({
-  //     description: `get information from your knowledge base to answer the user's question.`,
-  //     parameters: z.object({
-  //       question: z.string().describe("The user's question"),
-  //       similarQuestions: z
-  //         .array(z.string())
-  //         .describe("3 similar questions to the user's question."),
-  //     }),
-  //     execute: async ({ similarQuestions }) => {
-  //       try {
-  //         const results = await Promise.all(
-  //           similarQuestions.map((question) =>
-  //             findRelevantContent(question)
-  //           )
-  //         );
-  //         const flatResults = results.flat().filter(Boolean);
-  //         const uniqueResults = Array.from(
-  //           new Map(flatResults.map((item) => [item?.text, item])).values()
-  //         );
-  //         return {
-  //           result: uniqueResults.map((item, index) => ({
-  //             id: item.id ?? `doc-${index}`,
-  //             text: item.text ?? "（内容なし）",
-  //           })),
-  //         };
-  //       } catch (err) {
-  //         console.error("getInformation error:", err);
-  //         return { result: [] };
-  //       }
-  //     },
-  //   }),
-  // },
+ /*
+tools: {
+  getInformation: tool({
+    description: `get information from your knowledge base to answer the user's question.`,
+    parameters: z.object({
+      question: z.string().describe("The user's question"),
+      similarQuestions: z
+        .array(z.string())
+        .describe("3 similar questions to the user's question."),
+    }),
+    execute: async ({ similarQuestions }) => {
+      try {
+        const results = await Promise.all(
+          similarQuestions.map((question) =>
+            findRelevantContent(question)
+          )
+        );
+        const flatResults = results.flat().filter(Boolean);
+        const uniqueResults = Array.from(
+          new Map(flatResults.map((item) => [item?.text, item])).values()
+        );
+        return {
+          result: uniqueResults.map((item, index) => ({
+            id: item.id ?? `doc-${index}`,
+            text: item.text ?? "（内容なし）",
+          })),
+        };
+      } catch (err) {
+        console.error("getInformation error:", err);
+        return { result: [] };
+      }
+    },
+  }),
+},
+*/
+
 
   tools: {}, // ← 空定義にしておくと動作は維持される
 });
