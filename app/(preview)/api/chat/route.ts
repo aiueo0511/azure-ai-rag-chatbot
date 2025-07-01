@@ -11,11 +11,10 @@ export async function POST(req: Request) {
     const { messages } = await req.json();
 
     const result = await streamText({
-  model: azure(process.env.AZURE_DEPLOYMENT_NAME!),
-  messages: convertToCoreMessages(messages),
+      model: azure(process.env.AZURE_DEPLOYMENT_NAME!),
+      messages: convertToCoreMessages(messages),
 
-  system: 
-`#0. 前提と目的 
+      system: `##0. 前提と目的 
 ##0-1. シナリオ背景 
 この対話は、徳島県鳴門市の里浦小学校5年生の児童を対象としています。  
 児童たちは事前に以下のような学習・活動を経験しています： 
@@ -221,9 +220,26 @@ export async function POST(req: Request) {
  ナレッジ使用時の注意： 
 ・記事の文章をそのまま引用せず、やさしい日本語での要約・言い換えを行ってください。 
 ・被災者の声や事例は、自然な会話の流れの中で紹介してください。
-・紹介後は、共感・励まし → 質問の順でやりとりを進めてください。
+・紹介後は、共感・励まし → 質問の順でやりとりを進めてください。`,
+      
+      // 🛑 getInformationツールは一時的に無効化
+      // toolsセクションをコメントアウトしているため、以下に空定義を指定
+      tools: {}
+    });
 
-/*
+    return result.toDataStreamResponse();
+  } catch (error: unknown) {
+    console.error(error);
+    return new Response(
+      JSON.stringify({
+        error: "言葉をすこし変えて、もう一度入力してください。",
+      }),
+      { status: 500 }
+    );
+  }
+}
+
+/* 👇将来再有効化したい場合は、以下のコメントを戻せばOK
 tools: {
   getInformation: tool({
     description: `get information from your knowledge base to answer the user's question.`,
@@ -259,17 +275,3 @@ tools: {
 },
 */
 
-  tools: {}, // ← 空定義にしておくと動作は維持される
-});
-
-    return result.toDataStreamResponse();
-  } catch (error: unknown) {
-    console.error(error);
-    return new Response(
-      JSON.stringify({
-        error: "言葉をすこし変えて、もう一度入力してください。",
-      }),
-      { status: 500 }
-    );
-  }
-}
