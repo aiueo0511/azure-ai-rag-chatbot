@@ -136,7 +136,7 @@ export default function ChatInterface() {
 
             </div>
 <div className="text-center mb-4 md:mb-8">
-  <h1 className="text-2xl font-bold mb-2">町の深ぼり</h1>
+  <h1 className="text-2xl font-bold mb-2">防災教育</h1>
   <p className="text-sm text-muted-foreground mb-4">
     自分の考えや思いを深め、手助けをしてくれる学びのパートナーです。
   </p>
